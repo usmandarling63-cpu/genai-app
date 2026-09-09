@@ -15,10 +15,10 @@ if st.button("Hindi", key="Hindi_btn"):
         )
 
         if response.status_code == 200:
-            st.write(response.json()[0]["text"])
-        else:
-            st.error(f"Error: {response.status_code}")
-
+    st.write("Status Code:", response.status_code)
+    st.write("Response:", response.text)
+else:
+    st.error(f"Error: {response.status_code}")
 elif st.button("Telugu", key="Telugu_btn"):
     if text:
         response = requests.post(
@@ -27,6 +27,7 @@ elif st.button("Telugu", key="Telugu_btn"):
         )
 
         if response.status_code == 200:
-            st.write(response.json()[0]["text"])
-        else:
-            st.error(f"Error: {response.status_code}")
+    st.write("Status Code:", response.status_code)
+    st.write("Response:", response.text)
+else:
+    st.error(f"Error: {response.status_code}")
