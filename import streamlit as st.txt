@@ -1,0 +1,32 @@
+import streamlit as st
+import requests
+
+st.title(":rainbow[Welcome to Language Translation APP]")
+
+text = st.text_area("Enter your text here:")
+
+webhook_url = "https://shaik5195522.app.n8n.cloud/webhook/daefa7c5-372a-4a0b-a69f-2f37b5396ff6"
+
+if st.button("Hindi", key="Hindi_btn"):
+    if text:
+        response = requests.post(
+            url=webhook_url,
+            json={"input": text, "language": "Hindi"}
+        )
+
+        if response.status_code == 200:
+            st.write(response.json()["text"])
+        else:
+            st.error(f"Error: {response.status_code}")
+
+elif st.button("Telugu", key="Telugu_btn"):
+    if text:
+        response = requests.post(
+            url=webhook_url,
+            json={"input": text, "language": "Telugu"}
+        )
+
+        if response.status_code == 200:
+            st.write(response.json()["text"])
+        else:
+            st.error(f"Error: {response.status_code}")
