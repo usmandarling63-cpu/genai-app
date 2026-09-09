@@ -15,7 +15,7 @@ if st.button("Hindi", key="Hindi_btn"):
         )
 
         if response.status_code == 200:
-            st.write(response.json()["text"])
+           st.write(response.json()[0]["text"])
         else:
             st.error("Translation failed")
 
