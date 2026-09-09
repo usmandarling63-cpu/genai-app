@@ -10,23 +10,23 @@ webhook_url = "https://shaik5195522.app.n8n.cloud/webhook/daefa7c5-372a-4a0b-a69
 if st.button("Hindi", key="Hindi_btn"):
     if text:
         response = requests.post(
-            url=webhook_url,
+            webhook_url,
             json={"input": text, "language": "Hindi"}
         )
 
         if response.status_code == 200:
             st.write(response.json()["text"])
         else:
-            st.error(f"Error: {response.status_code}")
+            st.error("Translation failed")
 
 elif st.button("Telugu", key="Telugu_btn"):
     if text:
         response = requests.post(
-            url=webhook_url,
+            webhook_url,
             json={"input": text, "language": "Telugu"}
         )
 
         if response.status_code == 200:
             st.write(response.json()["text"])
         else:
-            st.error(f"Error: {response.status_code}")
+            st.error("Translation failed")
