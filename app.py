@@ -15,10 +15,11 @@ if st.button("Hindi", key="Hindi_btn"):
         )
 
         if response.status_code == 200:
-           st.write(response.json()[0]["text"])
-        else:
-            st.error("Translation failed")
-
+    st.write("Response from n8n:")
+    st.write(response.json())
+else:
+    st.error(f"Translation failed: {response.status_code}")
+    st.write(response.text)
 elif st.button("Telugu", key="Telugu_btn"):
     if text:
         response = requests.post(
@@ -27,6 +28,8 @@ elif st.button("Telugu", key="Telugu_btn"):
         )
 
         if response.status_code == 200:
-            st.write(response.json()[0]["text"])
-        else:
-            st.error("Translation failed")
+    st.write("Response from n8n:")
+    st.write(response.json())
+else:
+    st.error(f"Translation failed: {response.status_code}")
+    st.write(response.text)
